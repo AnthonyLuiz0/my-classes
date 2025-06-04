@@ -3,18 +3,11 @@
     namespace Config;
 
     class Import{
-        
-        /**
-         * 
-         * @param array $library a insira o link da biblioteca javascript que deseja importar
-         * @return echo
-        */
-
-        private $libs;
+        private $lib;
 
         public function importLib($library = []){
-            $this->libs = $library;
-            foreach($this->libs as $lib){
+            $this->lib = $library;
+            foreach($this->lib as $lib){
                 if(str_contains($lib, '.js')){
                     echo "<script src='$lib'></script>";
                 }
