@@ -34,8 +34,3 @@
             }
         }
     }
-
-    $userIDP = new GeneratorUserPID();
-    $newPID = "2794-2";
-    echo $newPID . "\n";
-    echo $userIDP->validate($newPID);
