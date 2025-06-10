@@ -3,21 +3,23 @@
     namespace Config;
 
     class Import{
-        private $lib;
+
+        private $libs;
 
         public function importLib($library = []){
-            $this->lib = $library;
-            foreach($this->lib as $lib){
-                if(str_contains($lib, '.js')){
-                    echo "<script src='$lib'></script>";
+            $this->libs = $library;
+            foreach($this->libs as $type => $lib){
+                switch($type){
+                    case 'js':
+                        echo "<script src='$lib'></script>";
+                        break;
+                    case 'css':
+                        echo "<link rel='stylesheet' href='$lib'>";
+                        break;
+                    default:
+                        echo "";
+                        break;
                 }
-
-                if(str_contains($lib, '.css')){
-                    echo "<link rel='stylesheet' href='$lib'>";
-                }
-
-                
             }
         }
-
     }
