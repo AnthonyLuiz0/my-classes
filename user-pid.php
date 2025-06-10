@@ -10,11 +10,12 @@
                 $userID = rand(0, 9);
                 $PID[] = $userID;
             }
+
             foreach($PID as $digit){
                 $validator += $digit;
             }
-            $validator = $validator % 10;
-            $PID[] = $validator;
+
+            $PID[] = $validator % 10;
             $returnPID = implode("", $PID);
             return $returnPID;
         }
@@ -26,11 +27,10 @@
             for($i = 0; $i < 4; $i++){
                 $validator += $PID[$i];
             }
-            $validator = $validator % 10;
-            if($validator == $PID[4]){
-                return "Valid";
-            }else{
-                return "Invalid";
+
+            if($validator % 10 == $PID[4]){
+                return true;
             }
+            return false;
         }
     }
