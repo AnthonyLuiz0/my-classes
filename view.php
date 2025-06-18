@@ -1,18 +1,12 @@
 <?php
 
-    namespace Config;
+namespace Config;
 
-    class View{
-        private $view;
-        private $data;
+class View{
 
-        public function __construct($view, $data = []){
-            $this->view = $view;
-            $this->data = $data;
-        }
-
-        public function render(){
-            extract($this->data);
-            require_once 'views/' . $this->view . '.php';
-        }
+    public function render($view, $data = []){
+        extract($data);
+        require_once 'views/' . $view . '.php';
     }
+
+}
